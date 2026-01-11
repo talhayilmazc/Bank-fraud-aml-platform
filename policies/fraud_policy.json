@@ -1,0 +1,40 @@
+﻿{
+  "policyId": "fraud-policy-v1",
+  "rules": [
+    {
+      "id": "betting_iban_prefix_1",
+      "type": "BETTING_IBAN_PREFIX",
+      "severity": "HIGH",
+      "action": "BLOCK_CREDIT",
+      "value": "TR00BET"
+    },
+    {
+      "id": "betting_iban_prefix_2",
+      "type": "BETTING_IBAN_PREFIX",
+      "severity": "HIGH",
+      "action": "BLOCK_CREDIT",
+      "value": "TR00BHS"
+    },
+    {
+      "id": "betting_mcc_7995",
+      "type": "BETTING_MCC",
+      "severity": "HIGH",
+      "action": "BLOCK_CREDIT",
+      "value": "7995"
+    },
+    {
+      "id": "keyword_bahis",
+      "type": "KEYWORD",
+      "severity": "MEDIUM",
+      "action": "ALERT_ONLY",
+      "value": "bahis"
+    },
+    {
+      "id": "keyword_betting",
+      "type": "KEYWORD",
+      "severity": "MEDIUM",
+      "action": "ALERT_ONLY",
+      "value": "betting"
+    }
+  ]
+}

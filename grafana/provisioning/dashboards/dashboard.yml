@@ -1,0 +1,11 @@
+dashboard.ymlapiVersion: 1
+
+providers:
+  - name: "Fraud AML Dashboards"
+    orgId: 1
+    folder: "FraudAML"
+    type: file
+    disableDeletion: false
+    editable: true
+    options:
+      path: /var/lib/grafana/dashboards

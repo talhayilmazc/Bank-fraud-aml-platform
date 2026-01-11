@@ -1,0 +1,66 @@
+{
+  "id": null,
+  "title": "Fraud & AML - Ops Dashboard",
+  "tags": ["fraud", "aml", "bank"],
+  "timezone": "browser",
+  "schemaVersion": 39,
+  "version": 1,
+  "refresh": "10s",
+  "panels": [
+    {
+      "type": "timeseries",
+      "title": "Kafka Events Processed (rate)",
+      "gridPos": { "x": 0, "y": 0, "w": 12, "h": 8 },
+      "targets": [
+        {
+          "expr": "rate(kafka_events_processed_total[1m])",
+          "legendFormat": "events/sec"
+        }
+      ]
+    },
+    {
+      "type": "timeseries",
+      "title": "Alerts Created (rate) by type",
+      "gridPos": { "x": 12, "y": 0, "w": 12, "h": 8 },
+      "targets": [
+        {
+          "expr": "sum by (type) (rate(fraud_alerts_total[1m]))",
+          "legendFormat": "{{type}}"
+        }
+      ]
+    },
+    {
+      "type": "timeseries",
+      "title": "Alerts by severity (rate)",
+      "gridPos": { "x": 0, "y": 8, "w": 12, "h": 8 },
+      "targets": [
+        {
+          "expr": "sum by (severity) (rate(fraud_alerts_total[1m]))",
+          "legendFormat": "{{severity}}"
+        }
+      ]
+    },
+    {
+      "type": "timeseries",
+      "title": "Cases Opened (rate) by priority",
+      "gridPos": { "x": 12, "y": 8, "w": 12, "h": 8 },
+      "targets": [
+        {
+          "expr": "sum by (priority) (rate(fraud_cases_opened_total[1m]))",
+          "legendFormat": "{{priority}}"
+        }
+      ]
+    },
+    {
+      "type": "timeseries",
+      "title": "Credit Blocks Executed (rate)",
+      "gridPos": { "x": 0, "y": 16, "w": 24, "h": 8 },
+      "targets": [
+        {
+          "expr": "sum(rate(credit_blocks_total[1m]))",
+          "legendFormat": "blocks/sec"
+        }
+      ]
+    }
+  ]
+}

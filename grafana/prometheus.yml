@@ -1,0 +1,8 @@
+global:
+  scrape_interval: 10s
+
+scrape_configs:
+  - job_name: "fraud-aml-api"
+    metrics_path: "/actuator/prometheus"
+    static_configs:
+      - targets: ["api:9200"]
